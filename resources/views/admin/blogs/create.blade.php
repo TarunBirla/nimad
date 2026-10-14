@@ -63,7 +63,7 @@
 
           <div class="form-group" style="margin-bottom: 0;">
             <label class="form-label" for="image_url">Or Image Path / URL <span style="font-size: 12px; color: var(--text-muted);">(Optional)</span></label>
-            <input type="text" id="image_url" name="image_url" class="form-control" value="{{ old('image_url') }}" placeholder="assets/img/projects/example.svg" onchange="previewUrl(this.value)">
+            <input type="text" id="image_url" name="image_url" class="form-control" value="{{ old('image_url') }}" placeholder="assets/img/blogs/example.svg" onchange="previewUrl(this.value)">
           </div>
         </div>
 
