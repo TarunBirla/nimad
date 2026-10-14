@@ -63,7 +63,7 @@
         <label class="form-label" for="image_file">Change Featured Image <span style="font-size: 12px; color: var(--text-muted);">(Optional)</span></label>
         @if($blog->image)
           <div style="margin-bottom: 8px;">
-            <img src="{{ asset($blog->image) }}" alt="Current Image" style="height: 50px; border-radius: 6px;">
+            <img src="{{ asset($blog->image) }}" alt="Current Image" style="height: 50px; border-radius: 6px; border: 1px solid #e2e8f0;">
           </div>
         @endif
         <input type="file" id="image_file" name="image_file" class="form-control" accept="image/*">
@@ -75,8 +75,8 @@
       </div>
     </div>
 
-    <div style="background: #0b1120; border: 1px solid var(--card-border); border-radius: 8px; padding: 16px; margin: 20px 0;">
-      <h4 style="font-size: 14px; color: #8f89ff; margin-bottom: 12px;"><i class="fa-solid fa-magnifying-glass"></i> SEO & Meta Tags</h4>
+    <div style="background: #f8fafc; border: 1px solid var(--card-border); border-radius: 10px; padding: 20px; margin: 24px 0;">
+      <h4 style="font-size: 15px; font-weight: 700; color: #4338ca; margin-bottom: 14px;"><i class="fa-solid fa-magnifying-glass"></i> Search Engine & AEO Optimization</h4>
       
       <div class="form-group">
         <label class="form-label" for="meta_title">Meta Title</label>
@@ -91,7 +91,7 @@
 
     <div class="form-group" style="display: flex; align-items: center; gap: 10px;">
       <input type="checkbox" id="is_published" name="is_published" value="1" {{ old('is_published', $blog->is_published) ? 'checked' : '' }} style="width: 18px; height: 18px; cursor: pointer;">
-      <label for="is_published" style="font-size: 14px; font-weight: 600; color: #fff; cursor: pointer;">Article is Published</label>
+      <label for="is_published" style="font-size: 14px; font-weight: 600; color: #0f172a; cursor: pointer;">Article is Published</label>
     </div>
 
     <div style="display: flex; gap: 12px; margin-top: 24px;">

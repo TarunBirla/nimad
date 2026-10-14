@@ -37,13 +37,13 @@
           @foreach($blogs as $b)
             <tr>
               <td>
-                <strong style="color: #fff; font-size: 14px;">{{ $b->title }}</strong><br>
-                <a href="{{ route('blog.show', $b->slug) }}" target="_blank" style="color: #8f89ff; font-size: 12px; text-decoration: none;">
+                <strong style="color: #0f172a; font-size: 14px;">{{ $b->title }}</strong><br>
+                <a href="{{ route('blog.show', $b->slug) }}" target="_blank" style="color: #635bff; font-size: 12px; font-weight: 500; text-decoration: none;">
                   /blog/{{ $b->slug }} <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 10px;"></i>
                 </a>
               </td>
               <td><span class="badge badge-tag">{{ $b->category }}</span></td>
-              <td><span style="color: #34d399; font-weight: 600;"><i class="fa-solid fa-eye"></i> {{ $b->views_count }}</span></td>
+              <td><span style="color: #059669; font-weight: 700;"><i class="fa-solid fa-eye"></i> {{ $b->views_count }}</span></td>
               <td>
                 <span class="badge {{ $b->is_published ? 'badge-read' : 'badge-unread' }}">
                   {{ $b->is_published ? 'Published' : 'Draft' }}

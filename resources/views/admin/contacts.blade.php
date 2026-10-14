@@ -40,30 +40,30 @@
           @foreach($contacts as $c)
             <tr>
               <td>
-                <span style="font-size: 12px; color: #fff;">{{ $c->created_at->format('M d, Y') }}</span><br>
+                <span style="font-size: 12px; font-weight: 600; color: #0f172a;">{{ $c->created_at->format('M d, Y') }}</span><br>
                 <span style="font-size: 11px; color: var(--text-muted);">{{ $c->created_at->format('h:i A') }}</span>
               </td>
               <td>
-                <strong style="color: #fff;">{{ $c->full_name }}</strong><br>
-                <a href="mailto:{{ $c->email }}" style="color: #8f89ff; text-decoration: none; font-size: 12px;">{{ $c->email }}</a>
+                <strong style="color: #0f172a;">{{ $c->full_name }}</strong><br>
+                <a href="mailto:{{ $c->email }}" style="color: #635bff; text-decoration: none; font-size: 12px; font-weight: 500;">{{ $c->email }}</a>
               </td>
               <td>
-                <span style="color: #cbd5e1;">{{ $c->company ?: '—' }}</span><br>
+                <span style="color: #334155; font-weight: 500;">{{ $c->company ?: '—' }}</span><br>
                 <span style="font-size: 12px; color: var(--text-muted);">{{ $c->phone ?: 'No phone' }}</span>
               </td>
               <td>
                 <span class="badge badge-tag">{{ ucwords(str_replace('-', ' ', $c->service)) }}</span>
                 @if($c->budget)
-                  <br><span style="font-size: 11px; color: #34d399;">{{ $c->budget }}</span>
+                  <br><span style="font-size: 12px; font-weight: 600; color: #059669;">{{ $c->budget }}</span>
                 @endif
               </td>
               <td style="max-width: 280px;">
-                <p style="font-size: 13px; color: #e2e8f0; line-height: 1.4; word-break: break-word;">{{ $c->message }}</p>
+                <p style="font-size: 13px; color: #334155; line-height: 1.5; word-break: break-word;">{{ $c->message }}</p>
               </td>
               <td>
                 <form action="{{ route('admin.contacts.status', $c->id) }}" method="POST">
                   @csrf
-                  <select name="status" onchange="this.form.submit()" style="background: #0b1120; border: 1px solid var(--card-border); color: #fff; padding: 4px 8px; border-radius: 6px; font-size: 12px;">
+                  <select name="status" onchange="this.form.submit()" style="background: #ffffff; border: 1px solid #cbd5e1; color: #0f172a; padding: 6px 10px; border-radius: 6px; font-size: 12px; font-weight: 500; cursor: pointer;">
                     <option value="unread" {{ $c->status === 'unread' ? 'selected' : '' }}>Unread</option>
                     <option value="read" {{ $c->status === 'read' ? 'selected' : '' }}>Read</option>
                     <option value="replied" {{ $c->status === 'replied' ? 'selected' : '' }}>Replied</option>

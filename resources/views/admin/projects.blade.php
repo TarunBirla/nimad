@@ -40,28 +40,28 @@
           @foreach($projects as $p)
             <tr>
               <td>
-                <span style="font-size: 12px; color: #fff;">{{ $p->created_at->format('M d, Y') }}</span><br>
+                <span style="font-size: 12px; font-weight: 600; color: #0f172a;">{{ $p->created_at->format('M d, Y') }}</span><br>
                 <span style="font-size: 11px; color: var(--text-muted);">{{ $p->created_at->format('h:i A') }}</span>
               </td>
               <td>
-                <strong style="color: #fff;">{{ $p->full_name }}</strong><br>
-                <a href="mailto:{{ $p->email }}" style="color: #8f89ff; text-decoration: none; font-size: 12px;">{{ $p->email }}</a><br>
+                <strong style="color: #0f172a;">{{ $p->full_name }}</strong><br>
+                <a href="mailto:{{ $p->email }}" style="color: #635bff; text-decoration: none; font-size: 12px; font-weight: 500;">{{ $p->email }}</a><br>
                 <span style="font-size: 12px; color: var(--text-muted);">{{ $p->company ? $p->company . ' • ' : '' }}{{ $p->phone ?: 'No phone' }}</span>
               </td>
               <td>
                 <span class="badge badge-tag">{{ ucwords(str_replace('-', ' ', $p->service)) }}</span>
               </td>
               <td>
-                <strong style="color: #34d399; font-size: 13px;">{{ $p->budget ?: 'To discuss' }}</strong><br>
+                <strong style="color: #059669; font-size: 13px;">{{ $p->budget ?: 'To discuss' }}</strong><br>
                 <span style="font-size: 12px; color: var(--text-muted);"><i class="fa-regular fa-clock"></i> {{ $p->timeline ?: 'Flexible' }}</span>
               </td>
               <td style="max-width: 320px;">
-                <p style="font-size: 13px; color: #e2e8f0; line-height: 1.4; word-break: break-word;">{{ $p->message }}</p>
+                <p style="font-size: 13px; color: #334155; line-height: 1.5; word-break: break-word;">{{ $p->message }}</p>
               </td>
               <td>
                 <form action="{{ route('admin.projects.status', $p->id) }}" method="POST">
                   @csrf
-                  <select name="status" onchange="this.form.submit()" style="background: #0b1120; border: 1px solid var(--card-border); color: #fff; padding: 4px 8px; border-radius: 6px; font-size: 12px;">
+                  <select name="status" onchange="this.form.submit()" style="background: #ffffff; border: 1px solid #cbd5e1; color: #0f172a; padding: 6px 10px; border-radius: 6px; font-size: 12px; font-weight: 500; cursor: pointer;">
                     <option value="unread" {{ $p->status === 'unread' ? 'selected' : '' }}>Unread</option>
                     <option value="in_review" {{ $p->status === 'in_review' ? 'selected' : '' }}>In Review</option>
                     <option value="contacted" {{ $p->status === 'contacted' ? 'selected' : '' }}>Contacted</option>
