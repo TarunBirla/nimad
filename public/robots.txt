@@ -1,5 +1,30 @@
+# Robots.txt for Nimad Tech (https://nimadtech.in)
+
 User-agent: *
 Allow: /
+Disallow: /admin
+Disallow: /admin/
+Disallow: /setup-database
 Disallow: /api/
 
+# AI & LLM Search Crawlers (AEO / GEO Optimization)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# Sitemap Location
 Sitemap: https://nimadtech.in/sitemap.xml

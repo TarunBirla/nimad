@@ -33,7 +33,8 @@
     <p class="alt-contact">Prefer a general message? Use the <a href="/contact">contact page</a>. You can also read <a href="/blog/what-to-prepare-before-contacting-a-development-company">what to prepare before contacting a development company</a>.</p>
   </div>
   <div class="contact-form-card"><div class="form-wrap form-wrap--steps" data-form-wrap>
-<form id="project-form" class="lead-form" method="post" action="../api/contact.php" novalidate data-lead-form data-form-type="start_project">
+<form id="project-form" class="lead-form" method="post" action="{{ route('project.submit') }}" novalidate data-lead-form data-form-type="start_project">
+  @csrf
   <div class="form-status" role="status" aria-live="polite" tabindex="-1" data-status></div>
   <input type="hidden" name="form_type" value="start_project">
 <input type="hidden" name="source_page" value="">

@@ -28,7 +28,8 @@
     <div class="side-card"><h3 class="h4">Not sure which service you need?</h3><p>Browse our <a href="/services">services</a> or <a href="/solutions">solutions by business problem</a>. Or choose “Not sure yet” in the form and we will advise.</p></div>
   </div>
   <div class="contact-form-card"><div class="form-wrap " data-form-wrap>
-<form id="contact-form" class="lead-form" method="post" action="../api/contact.php" novalidate data-lead-form data-form-type="contact">
+<form id="contact-form" class="lead-form" method="post" action="{{ route('contact.submit') }}" novalidate data-lead-form data-form-type="contact">
+  @csrf
   <div class="form-status" role="status" aria-live="polite" tabindex="-1" data-status></div>
   <input type="hidden" name="form_type" value="contact">
 <input type="hidden" name="source_page" value="">

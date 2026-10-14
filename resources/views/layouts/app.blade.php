@@ -5,8 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>@yield('title', 'Nimad Tech | Custom Software, Web & AI Development Company')</title>
   <meta name="description" content="@yield('meta_description', 'Nimad Tech builds custom software, web applications, mobile apps, CRM/ERP systems, AI automation and SaaS products for businesses in India and worldwide.')">
-  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="{{ url()->current() }}">
   <meta name="theme-color" content="#101828">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+
+  <!-- GEO & Local Business Meta for AEO / GEO -->
+  <meta name="geo.region" content="IN-MP">
+  <meta name="geo.placename" content="Nimad, Madhya Pradesh, India">
+  <meta name="geo.position" content="21.8257;76.3526">
+  <meta name="ICBM" content="21.8257, 76.3526">
 
   <!-- Open Graph -->
   <meta property="og:site_name" content="Nimad Tech">
@@ -27,18 +35,66 @@
   <meta name="twitter:image" content="{{ asset('assets/img/og-default.png') }}">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/jpeg" href="{{ asset('favicon.png') }}">
-  <link rel="shortcut icon" href="{{ asset('favicon.png') }}">
-  <link rel="apple-touch-icon" href="{{ asset('favicon.png') }}">
+  <link rel="icon" type="image/jpeg" href="{{ asset('favicon.jpeg') }}">
+  <link rel="shortcut icon" href="{{ asset('favicon.jpeg') }}">
+  <link rel="apple-touch-icon" href="{{ asset('favicon.jpeg') }}">
 
   <!-- Styles -->
   <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}?v=20261014">
+
+  <!-- LLM & AEO Semantic Knowledge Graph Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["Organization", "ProfessionalService"],
+        "@id": "{{ url('/') }}#organization",
+        "name": "Nimad Tech",
+        "url": "{{ url('/') }}",
+        "logo": "{{ asset('logo.jpeg') }}",
+        "description": "Nimad Tech is a premier custom software development, AI automation, CRM/ERP and digital product engineering company serving businesses in India and globally.",
+        "email": "info@nimadtech.in",
+        "address": {
+          "@type": "PostalAddress",
+          "addressRegion": "Madhya Pradesh",
+          "addressCountry": "IN"
+        },
+        "knowsAbout": [
+          "Custom Software Development",
+          "Web Application Development",
+          "Laravel & PHP Development",
+          "Artificial Intelligence Automation",
+          "Mobile App Development",
+          "CRM & ERP Systems",
+          "SaaS Product Engineering",
+          "API Integration",
+          "Application Modernization"
+        ],
+        "areaServed": [
+          {"@type": "Country", "name": "India"},
+          {"@type": "Country", "name": "United Kingdom"},
+          {"@type": "Country", "name": "United States"},
+          {"@type": "Country", "name": "Global"}
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "{{ url('/') }}#website",
+        "url": "{{ url('/') }}",
+        "name": "Nimad Tech",
+        "publisher": {"@id": "{{ url('/') }}#organization"},
+        "inLanguage": "en-IN"
+      }
+    ]
+  }
+  </script>
 
   <script>
     document.documentElement.classList.add('js');
     window.NIMAD = {
       "ga4": "",
-      "endpoint": "{{ route('contact') }}",
+      "endpoint": "{{ route('contact.submit') }}",
       "pageType": "@yield('page_type', 'page')"
     };
   </script>
