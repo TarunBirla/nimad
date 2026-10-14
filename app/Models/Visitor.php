@@ -11,6 +11,10 @@ class Visitor extends Model
 
     protected $fillable = [
         'ip_address',
+        'city',
+        'region',
+        'country',
+        'country_code',
         'device',
         'browser',
         'os',
@@ -29,5 +33,14 @@ class Visitor extends Model
     public function pageviews()
     {
         return $this->hasMany(VisitorPageview::class)->orderBy('created_at', 'desc');
+    }
+
+    public function getLocationFormattedAttribute(): string
+    {
+        $parts = array_filter([$this->city, $this->region, $this->country]);
+        if (!empty($parts)) {
+            return implode(', ', $parts);
+        }
+        return 'Location Unknown';
     }
 }

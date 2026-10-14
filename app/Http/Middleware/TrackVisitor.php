@@ -8,6 +8,8 @@ use Symfony\Component\HttpFoundation\Response;
 use App\Models\Visitor;
 use App\Models\VisitorPageview;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Cache;
 
 class TrackVisitor
 {
@@ -55,8 +57,13 @@ class TrackVisitor
                     $visitor = Visitor::where('ip_address', $ip)->first();
 
                     if (!$visitor) {
+                        $loc = $this->resolveLocation($request, $ip);
                         $visitor = Visitor::create([
                             'ip_address' => $ip,
+                            'city' => $loc['city'] ?? null,
+                            'region' => $loc['region'] ?? null,
+                            'country' => $loc['country'] ?? null,
+                            'country_code' => $loc['country_code'] ?? null,
                             'device' => $device,
                             'browser' => $browser,
                             'os' => $os,
@@ -67,6 +74,15 @@ class TrackVisitor
                             'last_visited_at' => now(),
                         ]);
                     } else {
+                        // If location was not previously populated, attempt to resolve
+                        if (empty($visitor->country)) {
+                            $loc = $this->resolveLocation($request, $ip);
+                            $visitor->city = $loc['city'] ?? $visitor->city;
+                            $visitor->region = $loc['region'] ?? $visitor->region;
+                            $visitor->country = $loc['country'] ?? $visitor->country;
+                            $visitor->country_code = $loc['country_code'] ?? $visitor->country_code;
+                        }
+
                         $visitor->total_pageviews += 1;
                         if ($isNewSession) {
                             $visitor->total_visits += 1;
@@ -90,6 +106,69 @@ class TrackVisitor
         }
 
         return $response;
+    }
+
+    private function resolveLocation(Request $request, string $ip): array
+    {
+        // 1. Cloudflare geolocation headers
+        $cfCity = $request->header('CF-IPCity');
+        $cfCountry = $request->header('CF-IPCountry');
+        $cfRegion = $request->header('CF-Region');
+
+        if ($cfCity || $cfCountry) {
+            return [
+                'city' => $cfCity ?: 'Unknown City',
+                'region' => $cfRegion ?: null,
+                'country' => $cfCountry ?: 'Unknown Country',
+                'country_code' => $cfCountry ?: 'IN',
+            ];
+        }
+
+        // 2. Localhost / Private network IPs
+        if (
+            in_array($ip, ['127.0.0.1', '::1']) ||
+            str_starts_with($ip, '192.168.') ||
+            str_starts_with($ip, '10.') ||
+            str_starts_with($ip, '172.16.')
+        ) {
+            return [
+                'city' => 'Localhost / Dev',
+                'region' => 'Development',
+                'country' => 'Local Network',
+                'country_code' => 'LOC',
+            ];
+        }
+
+        // 3. Fast non-blocking cached IP lookup (cached for 30 days)
+        try {
+            return Cache::remember("visitor_loc_{$ip}", 60 * 60 * 24 * 30, function () use ($ip) {
+                $response = Http::timeout(1.5)->get("http://ip-api.com/json/{$ip}?fields=status,country,countryCode,regionName,city");
+                if ($response->successful()) {
+                    $data = $response->json();
+                    if (($data['status'] ?? '') === 'success') {
+                        return [
+                            'city' => $data['city'] ?? null,
+                            'region' => $data['regionName'] ?? null,
+                            'country' => $data['country'] ?? null,
+                            'country_code' => $data['countryCode'] ?? null,
+                        ];
+                    }
+                }
+                return [
+                    'city' => 'Unknown',
+                    'region' => null,
+                    'country' => 'Unknown',
+                    'country_code' => null,
+                ];
+            });
+        } catch (\Throwable $e) {
+            return [
+                'city' => null,
+                'region' => null,
+                'country' => null,
+                'country_code' => null,
+            ];
+        }
     }
 
     private function detectDevice(string $ua): string

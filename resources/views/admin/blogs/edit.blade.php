@@ -79,7 +79,7 @@
           <label class="form-label">Current / Preview Image</label>
           <div id="preview-box" style="width: 100%; height: 160px; background: #ffffff; border: 1px solid #cbd5e1; border-radius: 8px; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative;">
             @if($blog->image)
-              <img id="image-preview" src="{{ asset($blog->image) }}" alt="Preview" style="width: 100%; height: 100%; object-fit: cover;">
+              <img id="image-preview" src="{{ $blog->image_url }}" alt="Preview" style="width: 100%; height: 100%; object-fit: cover;">
               <span id="preview-placeholder" style="display: none; color: #94a3b8; font-size: 13px; text-align: center;">No image</span>
             @else
               <img id="image-preview" src="" alt="Preview" style="display: none; width: 100%; height: 100%; object-fit: cover;">

@@ -102,6 +102,7 @@
         <thead>
           <tr>
             <th>IP Address</th>
+            <th>Location / City</th>
             <th>Times Visited</th>
             <th>Pages Viewed</th>
             <th>Device & OS</th>
@@ -115,6 +116,25 @@
             <tr>
               <td>
                 <span style="font-family: monospace; font-size: 14px; font-weight: 700; color: #0284c7;">{{ $v->ip_address }}</span>
+              </td>
+              <td>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <span style="display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 6px; background: #eef2ff; color: #635bff; font-size: 12px; flex-shrink: 0;">
+                    <i class="fa-solid fa-location-dot"></i>
+                  </span>
+                  <div>
+                    <div style="font-size: 13px; font-weight: 700; color: #0f172a;">
+                      {{ $v->city ?: ($v->region ?: 'Location Detected') }}
+                    </div>
+                    <div style="font-size: 11px; color: var(--text-muted);">
+                      @if($v->country)
+                        {{ $v->country }} @if($v->country_code)<span class="badge" style="padding: 1px 5px; font-size: 10px; background: #f1f5f9; color: #475569; margin-left: 2px;">{{ $v->country_code }}</span>@endif
+                      @else
+                        {{ $v->location_formatted ?: 'Unknown' }}
+                      @endif
+                    </div>
+                  </div>
+                </div>
               </td>
               <td>
                 <span class="badge" style="background: #ecfdf5; color: #047857; border: 1px solid #a7f3d0; font-size: 12px; font-weight: 600;">
@@ -142,10 +162,15 @@
             </tr>
             <!-- Collapsible Journey Row -->
             <tr id="journey-{{ $v->id }}" style="display: none; background: #f8fafc;">
-              <td colspan="7" style="padding: 18px 24px; border-bottom: 2px solid var(--accent);">
-                <h4 style="font-size: 14px; font-weight: 700; color: #4338ca; margin-bottom: 12px;">
-                  <i class="fa-solid fa-shoe-prints"></i> Browsing History for IP: {{ $v->ip_address }}
-                </h4>
+              <td colspan="8" style="padding: 18px 24px; border-bottom: 2px solid var(--accent);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 10px;">
+                  <h4 style="font-size: 14px; font-weight: 700; color: #4338ca; margin: 0;">
+                    <i class="fa-solid fa-shoe-prints"></i> Browsing History for IP: {{ $v->ip_address }}
+                  </h4>
+                  <span style="font-size: 12px; background: #ffffff; border: 1px solid #e2e8f0; padding: 4px 10px; border-radius: 6px; color: #334155; font-weight: 500;">
+                    <i class="fa-solid fa-map-location-dot" style="color: #635bff; margin-right: 4px;"></i> {{ $v->location_formatted }}
+                  </span>
+                </div>
                 <div style="display: flex; flex-direction: column; gap: 8px;">
                   @forelse($v->pageviews as $pv)
                     <div style="display: flex; align-items: center; gap: 12px; font-size: 13px; padding: 10px 14px; background: #ffffff; border-radius: 8px; border: 1px solid #e2e8f0; box-shadow: 0 1px 2px rgba(0,0,0,0.03);">

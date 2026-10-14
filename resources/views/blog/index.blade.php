@@ -48,15 +48,9 @@
     @if(isset($blogs) && $blogs->count() > 0)
       @foreach($blogs as $post)
         <article class="card card--link post-card" data-post data-category="{{ $post->category }}" data-search="{{ strtolower($post->title . ' ' . $post->excerpt . ' ' . $post->category) }}" style="display: flex; flex-direction: column; overflow: hidden; padding: 0;">
-          @if($post->image)
-            <div style="width: 100%; height: 190px; overflow: hidden; background: #0f172a; border-bottom: 1px solid var(--border);">
-              <img src="{{ asset($post->image) }}" alt="{{ $post->title }}" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
-            </div>
-          @else
-            <div style="width: 100%; height: 150px; overflow: hidden; background: linear-gradient(135deg, #101828 0%, #1e293b 100%); display: flex; align-items: center; justify-content: center; border-bottom: 1px solid var(--border);">
-              <img src="{{ asset('logo.jpeg') }}" alt="{{ $post->title }}" style="max-height: 40px; width: auto; opacity: 0.9;">
-            </div>
-          @endif
+          <div style="width: 100%; height: 190px; overflow: hidden; background: #0f172a; border-bottom: 1px solid var(--border);">
+            <img src="{{ $post->image_url }}" alt="{{ $post->title }}" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
+          </div>
           <div style="padding: 24px; display: flex; flex-direction: column; flex: 1;">
             <p class="post-meta">
               <span class="badge badge--soft">{{ $post->category }}</span>
@@ -73,7 +67,7 @@
     @else
       <article class="card card--link post-card" data-post data-category="Web" data-search="website performance and core web vitals: the basics what core web vitals measure and the practical changes that usually make a website faster. web" style="display: flex; flex-direction: column; overflow: hidden; padding: 0;">
         <div style="width: 100%; height: 190px; overflow: hidden; background: #0f172a; border-bottom: 1px solid var(--border);">
-          <img src="{{ asset('assets/img/projects/fleet-dispatch-dashboard.svg') }}" alt="Website Performance" style="width: 100%; height: 100%; object-fit: cover;">
+          <img src="{{ asset('assets/img/blogs/website-performance-core-web-vitals.svg') }}" alt="Website Performance" style="width: 100%; height: 100%; object-fit: cover;">
         </div>
         <div style="padding: 24px; display: flex; flex-direction: column; flex: 1;">
           <p class="post-meta"><span class="badge badge--soft">Web</span><time datetime="2026-10-12">12 October 2026</time></p>
@@ -85,7 +79,7 @@
 
       <article class="card card--link post-card" data-post data-category="Guides" data-search="what to prepare before contacting a software development company a short checklist that helps you get a faster, more accurate response to your project enquiry. guides" style="display: flex; flex-direction: column; overflow: hidden; padding: 0;">
         <div style="width: 100%; height: 190px; overflow: hidden; background: #0f172a; border-bottom: 1px solid var(--border);">
-          <img src="{{ asset('assets/img/projects/learning-portal-saas.svg') }}" alt="Software Scoping" style="width: 100%; height: 100%; object-fit: cover;">
+          <img src="{{ asset('assets/img/blogs/what-to-prepare-software-development.svg') }}" alt="Software Scoping" style="width: 100%; height: 100%; object-fit: cover;">
         </div>
         <div style="padding: 24px; display: flex; flex-direction: column; flex: 1;">
           <p class="post-meta"><span class="badge badge--soft">Guides</span><time datetime="2026-10-10">10 October 2026</time></p>
@@ -97,7 +91,7 @@
 
       <article class="card card--link post-card" data-post data-category="AI &amp; Automation" data-search="where ai and automation actually help a growing business practical places to start with ai and workflow automation, and where to be careful. ai &amp; automation" style="display: flex; flex-direction: column; overflow: hidden; padding: 0;">
         <div style="width: 100%; height: 190px; overflow: hidden; background: #0f172a; border-bottom: 1px solid var(--border);">
-          <img src="{{ asset('assets/img/projects/support-assistant-ai.svg') }}" alt="AI Automation" style="width: 100%; height: 100%; object-fit: cover;">
+          <img src="{{ asset('assets/img/blogs/where-ai-automation-helps-business.svg') }}" alt="AI Automation" style="width: 100%; height: 100%; object-fit: cover;">
         </div>
         <div style="padding: 24px; display: flex; flex-direction: column; flex: 1;">
           <p class="post-meta"><span class="badge badge--soft">AI &amp; Automation</span><time datetime="2026-10-08">8 October 2026</time></p>
@@ -109,7 +103,7 @@
 
       <article class="card card--link post-card" data-post data-category="Modernization" data-search="five signs your business application needs modernization slow, fragile or impossible to change: how to recognise when ageing software is costing more than it saves. modernization" style="display: flex; flex-direction: column; overflow: hidden; padding: 0;">
         <div style="width: 100%; height: 190px; overflow: hidden; background: #0f172a; border-bottom: 1px solid var(--border);">
-          <img src="{{ asset('assets/img/projects/clinic-appointment-platform.svg') }}" alt="Application Modernization" style="width: 100%; height: 100%; object-fit: cover;">
+          <img src="{{ asset('assets/img/blogs/signs-application-needs-modernization.svg') }}" alt="Application Modernization" style="width: 100%; height: 100%; object-fit: cover;">
         </div>
         <div style="padding: 24px; display: flex; flex-direction: column; flex: 1;">
           <p class="post-meta"><span class="badge badge--soft">Modernization</span><time datetime="2026-10-06">6 October 2026</time></p>
@@ -121,7 +115,7 @@
 
       <article class="card card--link post-card" data-post data-category="Strategy" data-search="custom software or off-the-shelf: how to decide when a ready-made product is the smart choice, and when building something tailored pays off. strategy" style="display: flex; flex-direction: column; overflow: hidden; padding: 0;">
         <div style="width: 100%; height: 190px; overflow: hidden; background: #0f172a; border-bottom: 1px solid var(--border);">
-          <img src="{{ asset('assets/img/projects/field-sales-crm.svg') }}" alt="Custom Software vs Off-the-Shelf" style="width: 100%; height: 100%; object-fit: cover;">
+          <img src="{{ asset('assets/img/blogs/custom-software-vs-off-the-shelf.svg') }}" alt="Custom Software vs Off-the-Shelf" style="width: 100%; height: 100%; object-fit: cover;">
         </div>
         <div style="padding: 24px; display: flex; flex-direction: column; flex: 1;">
           <p class="post-meta"><span class="badge badge--soft">Strategy</span><time datetime="2026-10-03">3 October 2026</time></p>
@@ -133,7 +127,7 @@
 
       <article class="card card--link post-card" data-post data-category="Guides" data-search="how to scope a software project so the estimate means something a practical way to describe a software project so a development partner can give you an estimate you can rely on. guides" style="display: flex; flex-direction: column; overflow: hidden; padding: 0;">
         <div style="width: 100%; height: 190px; overflow: hidden; background: #0f172a; border-bottom: 1px solid var(--border);">
-          <img src="{{ asset('assets/img/projects/restaurant-ordering-system.svg') }}" alt="Software Scoping" style="width: 100%; height: 100%; object-fit: cover;">
+          <img src="{{ asset('assets/img/blogs/how-to-scope-software-project.svg') }}" alt="Software Scoping" style="width: 100%; height: 100%; object-fit: cover;">
         </div>
         <div style="padding: 24px; display: flex; flex-direction: column; flex: 1;">
           <p class="post-meta"><span class="badge badge--soft">Guides</span><time datetime="2026-10-01">1 October 2026</time></p>

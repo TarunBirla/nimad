@@ -72,7 +72,7 @@
     <article class="prose article" data-article>
       @if($blog->image)
         <div style="margin-bottom: 30px; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.06); border: 1px solid var(--border); background: #0f172a;">
-          <img src="{{ asset($blog->image) }}" alt="{{ $blog->title }}" style="width: 100%; max-height: 480px; object-fit: cover; display: block;">
+          <img src="{{ $blog->image_url }}" alt="{{ $blog->title }}" style="width: 100%; max-height: 480px; object-fit: cover; display: block;">
         </div>
       @endif
       {!! $blog->content !!}
@@ -114,11 +114,9 @@
     <div class="grid grid-3">
       @foreach($related as $rel)
       <article class="card card--link post-card" style="display: flex; flex-direction: column; overflow: hidden; padding: 0;">
-        @if($rel->image)
-          <div style="width: 100%; height: 170px; overflow: hidden; background: #0f172a; border-bottom: 1px solid var(--border);">
-            <img src="{{ asset($rel->image) }}" alt="{{ $rel->title }}" style="width: 100%; height: 100%; object-fit: cover;">
-          </div>
-        @endif
+        <div style="width: 100%; height: 170px; overflow: hidden; background: #0f172a; border-bottom: 1px solid var(--border);">
+          <img src="{{ $rel->image_url }}" alt="{{ $rel->title }}" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
         <div style="padding: 24px; display: flex; flex-direction: column; flex: 1;">
           <p class="post-meta">
             <span class="badge badge--soft">{{ $rel->category }}</span>

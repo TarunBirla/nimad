@@ -94,9 +94,76 @@
     .form-control:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(99, 91, 255, 0.15); }
     textarea.form-control { min-height: 140px; resize: vertical; }
 
+    /* Pagination Styling */
+    .custom-pagination-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      padding-top: 20px;
+      margin-top: 20px;
+      border-top: 1px solid var(--card-border);
+    }
+    .pagination-info {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .pagination-info span {
+      font-weight: 700;
+      color: #0f172a;
+    }
+    .custom-pagination {
+      display: inline-flex;
+      align-items: center;
+      list-style: none;
+      gap: 6px;
+      margin: 0;
+      padding: 0;
+    }
+    .custom-pagination .page-item {
+      display: inline-block;
+    }
+    .custom-pagination .page-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 7px 13px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #334155;
+      background-color: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      min-width: 36px;
+      height: 36px;
+    }
+    .custom-pagination .page-link:hover {
+      background-color: #f1f5f9;
+      border-color: #94a3b8;
+      color: var(--accent);
+    }
+    .custom-pagination .page-item.active .page-link {
+      background-color: var(--accent);
+      border-color: var(--accent);
+      color: #ffffff;
+      box-shadow: 0 2px 4px rgba(99, 91, 255, 0.25);
+    }
+    .custom-pagination .page-item.disabled .page-link {
+      background-color: #f8fafc;
+      border-color: #e2e8f0;
+      color: #94a3b8;
+      cursor: not-allowed;
+      opacity: 0.7;
+    }
+
     @media (max-width: 900px) {
       body { flex-direction: column; }
       .sidebar { width: 100%; height: auto; }
+      .custom-pagination-container { flex-direction: column; align-items: flex-start; }
     }
   </style>
   @stack('styles')

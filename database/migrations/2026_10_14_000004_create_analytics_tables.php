@@ -11,6 +11,10 @@ return new class extends Migration
         Schema::create('visitors', function (Blueprint $table) {
             $table->id();
             $table->string('ip_address', 45)->unique();
+            $table->string('city', 100)->nullable();
+            $table->string('region', 100)->nullable();
+            $table->string('country', 100)->nullable();
+            $table->string('country_code', 10)->nullable();
             $table->string('device', 50)->nullable();
             $table->string('browser', 100)->nullable();
             $table->string('os', 100)->nullable();

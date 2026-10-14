@@ -66,7 +66,7 @@ class AdminDashboardController extends Controller
             $query->where('status', $status);
         }
 
-        $contacts = $query ? $query->paginate(15) : collect();
+        $contacts = $query ? $query->paginate(10) : collect();
         return view('admin.contacts', compact('contacts', 'status'));
     }
 
@@ -96,7 +96,7 @@ class AdminDashboardController extends Controller
             $query->where('status', $status);
         }
 
-        $projects = $query ? $query->paginate(15) : collect();
+        $projects = $query ? $query->paginate(10) : collect();
         return view('admin.projects', compact('projects', 'status'));
     }
 
@@ -120,7 +120,7 @@ class AdminDashboardController extends Controller
     public function analytics(Request $request)
     {
         $visitors = Schema::hasTable('visitors')
-            ? Visitor::with('pageviews')->orderBy('last_visited_at', 'desc')->paginate(20)
+            ? Visitor::with('pageviews')->orderBy('last_visited_at', 'desc')->paginate(10)
             : collect();
 
         $topPages = Schema::hasTable('visitor_pageviews')

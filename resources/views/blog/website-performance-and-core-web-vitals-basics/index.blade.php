@@ -18,7 +18,11 @@
   <p class="lead">What Core Web Vitals measure and the practical changes that usually make a website faster.</p>
 </div></section>
 <section class="section"><div class="container article-layout">
-  <article class="prose article" data-article><p>A slow website costs you visitors, enquiries and search visibility. Google&#39;s Core Web Vitals give a common way to measure the experience.</p>
+  <article class="prose article" data-article>
+    <div style="margin-bottom: 30px; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.06); border: 1px solid var(--border); background: #0f172a;">
+      <img src="{{ asset('assets/img/blogs/website-performance-core-web-vitals.svg') }}" alt="Website performance and Core Web Vitals" style="width: 100%; max-height: 440px; object-fit: cover; display: block;">
+    </div>
+    <p>A slow website costs you visitors, enquiries and search visibility. Google&#39;s Core Web Vitals give a common way to measure the experience.</p>
 <h2 id="the-three-measures">The three measures</h2>
 <ul><li><strong>Largest Contentful Paint (LCP)</strong> is how quickly the main content appears.</li><li><strong>Interaction to Next Paint (INP)</strong> is how quickly the page responds when someone taps or clicks.</li><li><strong>Cumulative Layout Shift (CLS)</strong> is how much the layout jumps around while loading.</li></ul>
 <p>Search Console and PageSpeed tools report these for your site, and recommended thresholds are published by Google.</p>
@@ -46,21 +50,36 @@
   <h2>Related articles</h2>
   
 </div>
-  <div class="grid grid-3"><article class="card card--link post-card" data-post data-category="Guides" data-search="what to prepare before contacting a software development company a short checklist that helps you get a faster, more accurate response to your project enquiry. guides">
-  <p class="post-meta"><span class="badge badge--soft">Guides</span><time datetime="2026-10-10">10 October 2026</time></p>
-  <h3><a class="card-link" href="/blog/what-to-prepare-before-contacting-a-development-company">What to prepare before contacting a software development company</a></h3>
-  <p>A short checklist that helps you get a faster, more accurate response to your project enquiry.</p>
-  <span class="link-arrow" aria-hidden="true">Read article <svg class="icon icon--sm" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-</article><article class="card card--link post-card" data-post data-category="AI &amp; Automation" data-search="where ai and automation actually help a growing business practical places to start with ai and workflow automation, and where to be careful. ai &amp; automation">
-  <p class="post-meta"><span class="badge badge--soft">AI &amp; Automation</span><time datetime="2026-10-08">8 October 2026</time></p>
-  <h3><a class="card-link" href="/blog/where-ai-automation-actually-helps-small-businesses">Where AI and automation actually help a growing business</a></h3>
-  <p>Practical places to start with AI and workflow automation, and where to be careful.</p>
-  <span class="link-arrow" aria-hidden="true">Read article <svg class="icon icon--sm" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-</article><article class="card card--link post-card" data-post data-category="Modernization" data-search="five signs your business application needs modernization slow, fragile or impossible to change: how to recognise when ageing software is costing more than it saves. modernization">
-  <p class="post-meta"><span class="badge badge--soft">Modernization</span><time datetime="2026-10-06">6 October 2026</time></p>
-  <h3><a class="card-link" href="/blog/signs-your-application-needs-modernization">Five signs your business application needs modernization</a></h3>
-  <p>Slow, fragile or impossible to change: how to recognise when ageing software is costing more than it saves.</p>
-  <span class="link-arrow" aria-hidden="true">Read article <svg class="icon icon--sm" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+  <div class="grid grid-3"><article class="card card--link post-card" data-post data-category="Guides" style="display: flex; flex-direction: column; overflow: hidden; padding: 0;">
+  <div style="width: 100%; height: 170px; overflow: hidden; background: #0f172a; border-bottom: 1px solid var(--border);">
+    <img src="{{ asset('assets/img/blogs/what-to-prepare-software-development.svg') }}" alt="What to prepare" style="width: 100%; height: 100%; object-fit: cover;">
+  </div>
+  <div style="padding: 24px; display: flex; flex-direction: column; flex: 1;">
+    <p class="post-meta"><span class="badge badge--soft">Guides</span><time datetime="2026-10-10">10 October 2026</time></p>
+    <h3 style="margin-top: 10px;"><a class="card-link" href="/blog/what-to-prepare-before-contacting-a-development-company">What to prepare before contacting a software development company</a></h3>
+    <p style="margin-top: 8px;">A short checklist that helps you get a faster, more accurate response to your project enquiry.</p>
+    <span class="link-arrow" aria-hidden="true" style="margin-top: auto; padding-top: 14px;">Read article <svg class="icon icon--sm" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+  </div>
+</article><article class="card card--link post-card" data-post data-category="AI &amp; Automation" style="display: flex; flex-direction: column; overflow: hidden; padding: 0;">
+  <div style="width: 100%; height: 170px; overflow: hidden; background: #0f172a; border-bottom: 1px solid var(--border);">
+    <img src="{{ asset('assets/img/blogs/where-ai-automation-helps-business.svg') }}" alt="AI automation" style="width: 100%; height: 100%; object-fit: cover;">
+  </div>
+  <div style="padding: 24px; display: flex; flex-direction: column; flex: 1;">
+    <p class="post-meta"><span class="badge badge--soft">AI &amp; Automation</span><time datetime="2026-10-08">8 October 2026</time></p>
+    <h3 style="margin-top: 10px;"><a class="card-link" href="/blog/where-ai-automation-actually-helps-small-businesses">Where AI and automation actually help a growing business</a></h3>
+    <p style="margin-top: 8px;">Practical places to start with AI and workflow automation, and where to be careful.</p>
+    <span class="link-arrow" aria-hidden="true" style="margin-top: auto; padding-top: 14px;">Read article <svg class="icon icon--sm" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+  </div>
+</article><article class="card card--link post-card" data-post data-category="Modernization" style="display: flex; flex-direction: column; overflow: hidden; padding: 0;">
+  <div style="width: 100%; height: 170px; overflow: hidden; background: #0f172a; border-bottom: 1px solid var(--border);">
+    <img src="{{ asset('assets/img/blogs/signs-application-needs-modernization.svg') }}" alt="Application modernization" style="width: 100%; height: 100%; object-fit: cover;">
+  </div>
+  <div style="padding: 24px; display: flex; flex-direction: column; flex: 1;">
+    <p class="post-meta"><span class="badge badge--soft">Modernization</span><time datetime="2026-10-06">6 October 2026</time></p>
+    <h3 style="margin-top: 10px;"><a class="card-link" href="/blog/signs-your-application-needs-modernization">Five signs your business application needs modernization</a></h3>
+    <p style="margin-top: 8px;">Slow, fragile or impossible to change: how to recognise when ageing software is costing more than it saves.</p>
+    <span class="link-arrow" aria-hidden="true" style="margin-top: auto; padding-top: 14px;">Read article <svg class="icon icon--sm" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+  </div>
 </article></div>
 </div></section>
 <section class="cta-band" aria-labelledby="cta-title">

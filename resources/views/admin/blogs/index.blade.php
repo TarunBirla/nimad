@@ -38,13 +38,7 @@
           @foreach($blogs as $b)
             <tr>
               <td>
-                @if($b->image)
-                  <img src="{{ asset($b->image) }}" alt="{{ $b->title }}" style="width: 56px; height: 38px; object-fit: cover; border-radius: 6px; border: 1px solid #e2e8f0; display: block;">
-                @else
-                  <span style="display: flex; align-items: center; justify-content: center; width: 56px; height: 38px; background: #f1f5f9; color: #94a3b8; border-radius: 6px; font-size: 14px; border: 1px solid #e2e8f0;" title="No Image">
-                    <i class="fa-regular fa-image"></i>
-                  </span>
-                @endif
+                <img src="{{ $b->image_url }}" alt="{{ $b->title }}" style="width: 56px; height: 38px; object-fit: cover; border-radius: 6px; border: 1px solid #e2e8f0; display: block;">
               </td>
               <td>
                 <strong style="color: #0f172a; font-size: 14px;">{{ $b->title }}</strong><br>
