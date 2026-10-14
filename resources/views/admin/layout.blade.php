@@ -28,7 +28,7 @@
     /* Sidebar */
     .sidebar { width: 260px; background-color: #ffffff; border-right: 1px solid var(--card-border); display: flex; flex-direction: column; flex-shrink: 0; }
     .sidebar-header { padding: 24px 20px; border-bottom: 1px solid var(--card-border); display: flex; align-items: center; gap: 12px; }
-    .sidebar-header img { height: 32px; border-radius: 6px; }
+    .sidebar-header img { height: 52px; border-radius: 6px; }
     .sidebar-nav { padding: 20px 12px; flex: 1; display: flex; flex-direction: column; gap: 4px; }
     .nav-link { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-radius: 8px; color: var(--text-muted); text-decoration: none; font-weight: 500; font-size: 14px; transition: all 0.2s; }
     .nav-link:hover { background-color: #f1f5f9; color: var(--text); }

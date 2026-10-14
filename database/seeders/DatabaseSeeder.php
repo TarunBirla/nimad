@@ -21,12 +21,13 @@ class DatabaseSeeder extends Seeder
             ]
         );
 
-        // 2. Seed Initial Blogs
+        // 2. Seed Initial Blogs with rich images
         $blogs = [
             [
                 'title' => 'Website performance and Core Web Vitals: the basics',
                 'slug' => 'website-performance-and-core-web-vitals-basics',
                 'category' => 'Web',
+                'image' => 'assets/img/projects/fleet-dispatch-dashboard.svg',
                 'excerpt' => 'What Core Web Vitals measure and the practical changes that usually make a website faster.',
                 'content' => '<p>Page speed directly impacts visitor conversion rates, search engine rankings, and user satisfaction. Core Web Vitals are Google\'s standardized metrics for measuring real-world user experience on the web.</p>
 <h2>Understanding the Core Web Vitals</h2>
@@ -53,6 +54,7 @@ class DatabaseSeeder extends Seeder
                 'title' => 'What to prepare before contacting a software development company',
                 'slug' => 'what-to-prepare-before-contacting-a-development-company',
                 'category' => 'Guides',
+                'image' => 'assets/img/projects/learning-portal-saas.svg',
                 'excerpt' => 'A short checklist that helps you get a faster, more accurate response to your project enquiry.',
                 'content' => '<p>When reaching out to a software development partner, having clear baseline information prepared helps teams provide realistic timelines, accurate estimates, and structured project proposals.</p>
 <h2>Key items to prepare</h2>
@@ -73,6 +75,7 @@ class DatabaseSeeder extends Seeder
                 'title' => 'Where AI and automation actually help a growing business',
                 'slug' => 'where-ai-automation-actually-helps-small-businesses',
                 'category' => 'AI & Automation',
+                'image' => 'assets/img/projects/support-assistant-ai.svg',
                 'excerpt' => 'Practical places to start with AI and workflow automation, and where to be careful.',
                 'content' => '<p>AI is transforming modern business operations, but real ROI comes from applying intelligence to high-volume, repetitive processes rather than adopting buzzwords for their own sake.</p>
 <h2>Highest value AI applications</h2>
@@ -93,6 +96,7 @@ class DatabaseSeeder extends Seeder
                 'title' => 'Five signs your business application needs modernization',
                 'slug' => 'signs-your-application-needs-modernization',
                 'category' => 'Modernization',
+                'image' => 'assets/img/projects/clinic-appointment-platform.svg',
                 'excerpt' => 'Slow, fragile or impossible to change: how to recognise when ageing software is costing more than it saves.',
                 'content' => '<p>Legacy software often continues running for years, but as codebases age, maintenance costs spiral, security vulnerabilities appear, and business agility diminishes.</p>
 <h2>Signs it is time to modernize</h2>
@@ -114,6 +118,7 @@ class DatabaseSeeder extends Seeder
                 'title' => 'Custom software or off-the-shelf: how to decide',
                 'slug' => 'custom-software-vs-off-the-shelf',
                 'category' => 'Strategy',
+                'image' => 'assets/img/projects/field-sales-crm.svg',
                 'excerpt' => 'When a ready-made product is the smart choice, and when building something tailored pays off.',
                 'content' => '<p>&quot;Should we build or buy?&quot; is one of the most common questions business leaders ask. The honest answer is that both options have their rightful place.</p>
 <h2>When off-the-shelf is better</h2>
@@ -131,6 +136,7 @@ class DatabaseSeeder extends Seeder
                 'title' => 'How to scope a software project so the estimate means something',
                 'slug' => 'how-to-scope-a-software-project',
                 'category' => 'Guides',
+                'image' => 'assets/img/projects/restaurant-ordering-system.svg',
                 'excerpt' => 'A practical way to describe a software project so a development partner can give you an estimate you can rely on.',
                 'content' => '<p>Estimates are only as reliable as the clarity of requirements behind them. A disciplined scoping process avoids budget overruns and scope creep.</p>
 <h2>Elements of a dependable scope</h2>

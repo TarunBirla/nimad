@@ -23,7 +23,7 @@
     "name": "Nimad Tech",
     "logo": {
       "@type": "ImageObject",
-      "url": "{{ asset('logo.png') }}"
+      "url": "{{ asset('logo.jpeg') }}"
     }
   },
   "image": "{{ $blog->image ? asset($blog->image) : asset('assets/img/og-default.png') }}"
@@ -71,8 +71,8 @@
   <div class="container article-layout">
     <article class="prose article" data-article>
       @if($blog->image)
-        <div style="margin-bottom: 24px;">
-          <img src="{{ asset($blog->image) }}" alt="{{ $blog->title }}" style="width: 100%; max-height: 440px; object-fit: cover; border-radius: 12px;">
+        <div style="margin-bottom: 30px; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.06); border: 1px solid var(--border); background: #0f172a;">
+          <img src="{{ asset($blog->image) }}" alt="{{ $blog->title }}" style="width: 100%; max-height: 480px; object-fit: cover; display: block;">
         </div>
       @endif
       {!! $blog->content !!}
@@ -113,16 +113,23 @@
     </div>
     <div class="grid grid-3">
       @foreach($related as $rel)
-      <article class="card card--link post-card">
-        <p class="post-meta">
-          <span class="badge badge--soft">{{ $rel->category }}</span>
-          <time datetime="{{ $rel->published_at ? $rel->published_at->toDateString() : $rel->created_at->toDateString() }}">
-            {{ $rel->published_at ? $rel->published_at->format('j F Y') : $rel->created_at->format('j F Y') }}
-          </time>
-        </p>
-        <h3><a class="card-link" href="{{ route('blog.show', $rel->slug) }}">{{ $rel->title }}</a></h3>
-        <p>{{ $rel->excerpt }}</p>
-        <span class="link-arrow" aria-hidden="true">Read article <svg class="icon icon--sm" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      <article class="card card--link post-card" style="display: flex; flex-direction: column; overflow: hidden; padding: 0;">
+        @if($rel->image)
+          <div style="width: 100%; height: 170px; overflow: hidden; background: #0f172a; border-bottom: 1px solid var(--border);">
+            <img src="{{ asset($rel->image) }}" alt="{{ $rel->title }}" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+        @endif
+        <div style="padding: 24px; display: flex; flex-direction: column; flex: 1;">
+          <p class="post-meta">
+            <span class="badge badge--soft">{{ $rel->category }}</span>
+            <time datetime="{{ $rel->published_at ? $rel->published_at->toDateString() : $rel->created_at->toDateString() }}">
+              {{ $rel->published_at ? $rel->published_at->format('j F Y') : $rel->created_at->format('j F Y') }}
+            </time>
+          </p>
+          <h3 style="margin-top: 10px;"><a class="card-link" href="{{ route('blog.show', $rel->slug) }}">{{ $rel->title }}</a></h3>
+          <p style="margin-top: 8px;">{{ $rel->excerpt }}</p>
+          <span class="link-arrow" aria-hidden="true" style="margin-top: auto; padding-top: 14px;">Read article <svg class="icon icon--sm" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </div>
       </article>
       @endforeach
     </div>

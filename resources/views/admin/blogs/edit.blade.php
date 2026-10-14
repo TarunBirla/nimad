@@ -48,6 +48,51 @@
       </div>
     </div>
 
+    <!-- Featured Image Section with Live Preview & Remove option -->
+    <div style="background: #f8fafc; border: 1px solid var(--card-border); border-radius: 10px; padding: 20px; margin: 20px 0;">
+      <h4 style="font-size: 15px; font-weight: 700; color: #4338ca; margin-bottom: 14px;">
+        <i class="fa-regular fa-image"></i> Featured Article Image
+      </h4>
+
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start;">
+        <div>
+          <div class="form-group">
+            <label class="form-label" for="image_file">Upload New Image File</label>
+            <input type="file" id="image_file" name="image_file" class="form-control" accept="image/*" onchange="previewImage(this)">
+            <p style="font-size: 12px; color: var(--text-muted); margin-top: 4px;">Upload to replace current image (Max 5MB)</p>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="image_url">Or Image Path / URL</label>
+            <input type="text" id="image_url" name="image_url" class="form-control" value="{{ old('image_url', $blog->image) }}" onchange="previewUrl(this.value)">
+          </div>
+
+          @if($blog->image)
+            <div style="display: flex; align-items: center; gap: 8px; margin-top: 10px;">
+              <input type="checkbox" id="remove_image" name="remove_image" value="1" style="width: 16px; height: 16px;">
+              <label for="remove_image" style="font-size: 13px; color: #dc2626; cursor: pointer; font-weight: 600;">Remove current image</label>
+            </div>
+          @endif
+        </div>
+
+        <div>
+          <label class="form-label">Current / Preview Image</label>
+          <div id="preview-box" style="width: 100%; height: 160px; background: #ffffff; border: 1px solid #cbd5e1; border-radius: 8px; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative;">
+            @if($blog->image)
+              <img id="image-preview" src="{{ asset($blog->image) }}" alt="Preview" style="width: 100%; height: 100%; object-fit: cover;">
+              <span id="preview-placeholder" style="display: none; color: #94a3b8; font-size: 13px; text-align: center;">No image</span>
+            @else
+              <img id="image-preview" src="" alt="Preview" style="display: none; width: 100%; height: 100%; object-fit: cover;">
+              <span id="preview-placeholder" style="color: #94a3b8; font-size: 13px; text-align: center;">
+                <i class="fa-solid fa-cloud-arrow-up" style="font-size: 24px; display: block; margin-bottom: 6px;"></i>
+                No image set. Upload to set one.
+              </span>
+            @endif
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="form-group">
       <label class="form-label" for="excerpt">Excerpt / Summary <span style="color: #ef4444;">*</span></label>
       <textarea id="excerpt" name="excerpt" class="form-control" style="min-height: 80px;" required>{{ old('excerpt', $blog->excerpt) }}</textarea>
@@ -60,13 +105,8 @@
 
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
       <div class="form-group">
-        <label class="form-label" for="image_file">Change Featured Image <span style="font-size: 12px; color: var(--text-muted);">(Optional)</span></label>
-        @if($blog->image)
-          <div style="margin-bottom: 8px;">
-            <img src="{{ asset($blog->image) }}" alt="Current Image" style="height: 50px; border-radius: 6px; border: 1px solid #e2e8f0;">
-          </div>
-        @endif
-        <input type="file" id="image_file" name="image_file" class="form-control" accept="image/*">
+        <label class="form-label" for="author">Author Name</label>
+        <input type="text" id="author" name="author" class="form-control" value="{{ old('author', $blog->author) }}">
       </div>
 
       <div class="form-group">
@@ -104,3 +144,30 @@
 </div>
 
 @endsection
+
+@push('scripts')
+<script>
+  function previewImage(input) {
+    const preview = document.getElementById('image-preview');
+    const placeholder = document.getElementById('preview-placeholder');
+    if (input.files && input.files[0]) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        preview.src = e.target.result;
+        preview.style.display = 'block';
+        if (placeholder) placeholder.style.display = 'none';
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+
+  function previewUrl(url) {
+    if (!url) return;
+    const preview = document.getElementById('image-preview');
+    const placeholder = document.getElementById('preview-placeholder');
+    preview.src = url.startsWith('http') || url.startsWith('/') ? url : '/' + url;
+    preview.style.display = 'block';
+    if (placeholder) placeholder.style.display = 'none';
+  }
+</script>
+@endpush
