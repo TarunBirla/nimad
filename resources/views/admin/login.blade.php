@@ -31,7 +31,7 @@
 <body>
   <div class="login-card">
     <div class="logo-wrap">
-      <img src="{{ asset('logo.jpeg') }}" alt="Nimad Tech">
+      <img src="{{ asset('logo.png') }}" alt="Nimad Tech">
     </div>
     <h1>Welcome Back</h1>
     <p class="sub">Sign in to manage inquiries, projects, and articles</p>
