@@ -455,17 +455,17 @@ legend { font-weight: 700; color: var(--navy); font-size: 1.2rem; margin-bottom:
 .wa-float .icon { width: 28px; height: 28px; }
 
 /* ---------- footer ---------- */
-.site-footer { background: var(--navy-2); color: #98a2b3; font-size: 0.93rem; }
+.site-footer { background: var(--white); color: var(--navy-2); font-size: 0.93rem; }
 .footer-grid { display: grid; grid-template-columns: 1.4fr 0.8fr 1.2fr 1fr; gap: 40px; padding-block: 72px 48px; }
 .footer-brand p { margin: 16px 0; max-width: 34ch; }
-.footer-h { font-size: 0.78rem; font-family: var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: #fff; margin-bottom: 16px; font-weight: 600; }
+.footer-h { font-size: 0.78rem; font-family: var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--navy-2); margin-bottom: 16px; font-weight: 600; }
 .site-footer ul { list-style: none; display: grid; gap: 10px; }
-.site-footer a { color: #98a2b3; text-decoration: none; }
-.site-footer a:hover { color: #fff; text-decoration: underline; }
+.site-footer a { color: var(--navy-2); text-decoration: none; }
+.site-footer a:hover { color: var(--navy-2); text-decoration: underline; }
 .footer-contact li { display: flex; gap: 10px; align-items: flex-start; }
 .footer-contact .icon { color: var(--accent-300); margin-top: 3px; }
 .social { display: flex !important; flex-wrap: wrap; gap: 10px !important; }
-.social a { display: grid; place-items: center; width: 40px; height: 40px; border: 1px solid #344054; border-radius: 10px; color: #d0d5dd; }
+.social a { display: grid; place-items: center; width: 40px; height: 40px; border: 1px solid #344054; border-radius: 10px; color: var(--navy-2); }
 .social a:hover { border-color: var(--accent-300); color: #fff; }
 .footer-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding-block: 24px; border-top: 1px solid #1d2939; }
 .footer-bottom p { margin: 0; }
