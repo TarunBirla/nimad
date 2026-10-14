@@ -23,7 +23,7 @@
     "name": "Nimad Tech",
     "logo": {
       "@type": "ImageObject",
-      "url": "{{ asset('logo.jpeg') }}"
+      "url": "{{ asset('logo.png') }}"
     }
   },
   "image": "{{ $blog->image ? asset($blog->image) : asset('assets/img/og-default.png') }}"

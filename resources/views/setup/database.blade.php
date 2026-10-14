@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Database Setup | Nimad Tech</title>
-  <link rel="icon" type="image/jpeg" href="{{ asset('favicon.jpeg') }}">
+  <link rel="icon" type="image/jpeg" href="{{ asset('favicon.png') }}">
   <style>
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #0f172a; color: #f8fafc; margin: 0; padding: 40px 20px; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
     .card { background-color: #1e293b; border: 1px solid #334155; border-radius: 16px; padding: 40px; max-width: 680px; width: 100%; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); }
@@ -25,7 +25,7 @@
 <body>
   <div class="card">
     <div style="text-align: center; margin-bottom: 24px;">
-      <img src="{{ asset('logo.jpeg') }}" alt="Nimad Tech" style="height: 48px; border-radius: 8px;">
+      <img src="{{ asset('logo.png') }}" alt="Nimad Tech" style="height: 48px; border-radius: 8px;">
     </div>
 
     @if($status === 'success')

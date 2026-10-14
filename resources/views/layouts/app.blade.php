@@ -35,9 +35,9 @@
   <meta name="twitter:image" content="{{ asset('assets/img/og-default.png') }}">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/jpeg" href="{{ asset('favicon.jpeg') }}">
-  <link rel="shortcut icon" href="{{ asset('favicon.jpeg') }}">
-  <link rel="apple-touch-icon" href="{{ asset('favicon.jpeg') }}">
+  <link rel="icon" type="image/jpeg" href="{{ asset('favicon.png') }}">
+  <link rel="shortcut icon" href="{{ asset('favicon.png') }}">
+  <link rel="apple-touch-icon" href="{{ asset('favicon.png') }}">
 
   <!-- Styles -->
   <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}?v=20261014">
@@ -52,7 +52,7 @@
         "@id": "{{ url('/') }}#organization",
         "name": "Nimad Tech",
         "url": "{{ url('/') }}",
-        "logo": "{{ asset('logo.jpeg') }}",
+        "logo": "{{ asset('logo.png') }}",
         "description": "Nimad Tech is a premier custom software development, AI automation, CRM/ERP and digital product engineering company serving businesses in India and globally.",
         "email": "info@nimadtech.in",
         "address": {

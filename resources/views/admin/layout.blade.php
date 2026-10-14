@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>@yield('title', 'Admin Dashboard') | Nimad Tech Admin</title>
-  <link rel="icon" type="image/jpeg" href="{{ asset('favicon.jpeg') }}">
+  <link rel="icon" type="image/jpeg" href="{{ asset('favicon.png') }}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
@@ -104,7 +104,7 @@
   <!-- Sidebar Navigation -->
   <aside class="sidebar">
     <div class="sidebar-header">
-      <img src="{{ asset('logo.jpeg') }}" alt="Nimad Tech">
+      <img src="{{ asset('logo.png') }}" alt="Nimad Tech">
       <span style="font-weight: 700; font-size: 16px; color: #fff;">Admin Portal</span>
     </div>
     <nav class="sidebar-nav">

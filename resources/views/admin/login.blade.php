@@ -4,15 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Admin Login | Nimad Tech</title>
-  <link rel="icon" type="image/jpeg" href="{{ asset('favicon.jpeg') }}">
+  <link rel="icon" type="image/jpeg" href="{{ asset('favicon.png') }}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: #0b1120; color: #f8fafc; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
-    .login-card { background: #131c2e; border: 1px solid #1e293b; border-radius: 16px; padding: 40px; width: 100%; max-width: 440px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); }
+    .login-card { background: #fff; border: 1px solid #1e293b; border-radius: 16px; padding: 40px; width: 100%; max-width: 440px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); }
     .logo-wrap { text-align: center; margin-bottom: 28px; }
     .logo-wrap img { height: 42px; border-radius: 8px; }
-    h1 { font-size: 22px; font-weight: 700; margin-bottom: 6px; text-align: center; color: #fff; }
+    h1 { font-size: 22px; font-weight: 700; margin-bottom: 6px; text-align: center; color: #2541bf; }
     p.sub { font-size: 14px; color: #94a3b8; text-align: center; margin-bottom: 28px; }
     .form-group { margin-bottom: 20px; }
     label { display: block; font-size: 13px; font-weight: 600; color: #cbd5e1; margin-bottom: 8px; }
@@ -31,7 +31,7 @@
 <body>
   <div class="login-card">
     <div class="logo-wrap">
-      <img src="{{ asset('logo.jpeg') }}" alt="Nimad Tech">
+      <img src="{{ asset('logo.png') }}" alt="Nimad Tech">
     </div>
     <h1>Welcome Back</h1>
     <p class="sub">Sign in to manage inquiries, projects, and articles</p>
