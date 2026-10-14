@@ -105,8 +105,7 @@
   <!-- Sidebar Navigation -->
   <aside class="sidebar">
     <div class="sidebar-header">
-      <img src="{{ asset('logo.jpeg') }}" alt="Nimad Tech">
-      <span style="font-weight: 700; font-size: 16px; color: #0f172a;">Admin Portal</span>
+      <img src="{{ asset('logo.png') }}" alt="Nimad Tech">
     </div>
     <nav class="sidebar-nav">
       <a href="{{ route('admin.dashboard') }}" class="nav-link {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">

@@ -27,7 +27,8 @@ class AdminBlogController extends Controller
             'category' => 'required|string|max:100',
             'excerpt' => 'required|string|max:500',
             'content' => 'required|string',
-            'image_file' => 'nullable|image|mimes:jpeg,png,jpg,webp,svg|max:2048',
+            'image_file' => 'nullable|image|mimes:jpeg,png,jpg,webp,svg,gif|max:5120',
+            'image_url' => 'nullable|string|max:500',
             'author' => 'nullable|string|max:100',
             'read_time' => 'nullable|string|max:50',
             'meta_title' => 'nullable|string|max:255',
@@ -37,11 +38,17 @@ class AdminBlogController extends Controller
 
         $slug = $validated['slug'] ? Str::slug($validated['slug']) : Blog::generateSlug($validated['title']);
 
-        $imagePath = null;
+        $imagePath = $validated['image_url'] ?? null;
+
         if ($request->hasFile('image_file')) {
             $file = $request->file('image_file');
-            $fileName = time() . '_' . $file->getClientOriginalName();
-            $file->move(public_path('uploads/blogs'), $fileName);
+            $uploadDir = public_path('uploads/blogs');
+            if (!file_exists($uploadDir)) {
+                mkdir($uploadDir, 0777, true);
+            }
+            $cleanName = preg_replace('/[^a-zA-Z0-9._-]/', '', $file->getClientOriginalName());
+            $fileName = time() . '_' . $cleanName;
+            $file->move($uploadDir, $fileName);
             $imagePath = 'uploads/blogs/' . $fileName;
         }
 
@@ -60,7 +67,7 @@ class AdminBlogController extends Controller
             'published_at' => $request->has('is_published') ? now() : null,
         ]);
 
-        return redirect()->route('admin.blogs.index')->with('success', 'Blog article published successfully!');
+        return redirect()->route('admin.blogs.index')->with('success', 'Blog article published successfully with image!');
     }
 
     public function edit($id)
@@ -79,7 +86,9 @@ class AdminBlogController extends Controller
             'category' => 'required|string|max:100',
             'excerpt' => 'required|string|max:500',
             'content' => 'required|string',
-            'image_file' => 'nullable|image|mimes:jpeg,png,jpg,webp,svg|max:2048',
+            'image_file' => 'nullable|image|mimes:jpeg,png,jpg,webp,svg,gif|max:5120',
+            'image_url' => 'nullable|string|max:500',
+            'remove_image' => 'nullable|boolean',
             'author' => 'nullable|string|max:100',
             'read_time' => 'nullable|string|max:50',
             'meta_title' => 'nullable|string|max:255',
@@ -88,11 +97,32 @@ class AdminBlogController extends Controller
         ]);
 
         $imagePath = $blog->image;
+
+        // Check if user requested to remove image
+        if ($request->has('remove_image') && $request->boolean('remove_image')) {
+            if ($blog->image && file_exists(public_path($blog->image)) && str_starts_with($blog->image, 'uploads/blogs/')) {
+                @unlink(public_path($blog->image));
+            }
+            $imagePath = null;
+        }
+
+        // If new image file uploaded
         if ($request->hasFile('image_file')) {
+            // Delete old uploaded file if replacing
+            if ($blog->image && file_exists(public_path($blog->image)) && str_starts_with($blog->image, 'uploads/blogs/')) {
+                @unlink(public_path($blog->image));
+            }
             $file = $request->file('image_file');
-            $fileName = time() . '_' . $file->getClientOriginalName();
-            $file->move(public_path('uploads/blogs'), $fileName);
+            $uploadDir = public_path('uploads/blogs');
+            if (!file_exists($uploadDir)) {
+                mkdir($uploadDir, 0777, true);
+            }
+            $cleanName = preg_replace('/[^a-zA-Z0-9._-]/', '', $file->getClientOriginalName());
+            $fileName = time() . '_' . $cleanName;
+            $file->move($uploadDir, $fileName);
             $imagePath = 'uploads/blogs/' . $fileName;
+        } elseif (!empty($validated['image_url'])) {
+            $imagePath = $validated['image_url'];
         }
 
         $isPublished = $request->has('is_published');
@@ -122,6 +152,9 @@ class AdminBlogController extends Controller
     public function destroy($id)
     {
         $blog = Blog::findOrFail($id);
+        if ($blog->image && file_exists(public_path($blog->image)) && str_starts_with($blog->image, 'uploads/blogs/')) {
+            @unlink(public_path($blog->image));
+        }
         $blog->delete();
 
         return redirect()->route('admin.blogs.index')->with('success', 'Blog article deleted successfully.');

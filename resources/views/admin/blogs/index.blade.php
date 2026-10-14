@@ -25,6 +25,7 @@
       <table>
         <thead>
           <tr>
+            <th style="width: 70px;">Image</th>
             <th>Article Title</th>
             <th>Category</th>
             <th>Views</th>
@@ -36,6 +37,15 @@
         <tbody>
           @foreach($blogs as $b)
             <tr>
+              <td>
+                @if($b->image)
+                  <img src="{{ asset($b->image) }}" alt="{{ $b->title }}" style="width: 56px; height: 38px; object-fit: cover; border-radius: 6px; border: 1px solid #e2e8f0; display: block;">
+                @else
+                  <span style="display: flex; align-items: center; justify-content: center; width: 56px; height: 38px; background: #f1f5f9; color: #94a3b8; border-radius: 6px; font-size: 14px; border: 1px solid #e2e8f0;" title="No Image">
+                    <i class="fa-regular fa-image"></i>
+                  </span>
+                @endif
+              </td>
               <td>
                 <strong style="color: #0f172a; font-size: 14px;">{{ $b->title }}</strong><br>
                 <a href="{{ route('blog.show', $b->slug) }}" target="_blank" style="color: #635bff; font-size: 12px; font-weight: 500; text-decoration: none;">
@@ -56,7 +66,7 @@
               </td>
               <td>
                 <div style="display: flex; gap: 8px;">
-                  <a href="{{ route('admin.blogs.edit', $b->id) }}" class="btn btn-primary btn-sm" title="Edit">
+                  <a href="{{ route('admin.blogs.edit', $b->id) }}" class="btn btn-primary btn-sm" title="Edit Article">
                     <i class="fa-solid fa-pen-to-square"></i>
                   </a>
                   <form action="{{ route('admin.blogs.destroy', $b->id) }}" method="POST" onsubmit="return confirm('Delete this blog permanently?');">
