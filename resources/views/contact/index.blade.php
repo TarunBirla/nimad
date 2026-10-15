@@ -24,6 +24,14 @@
     <h2 class="h3">How we can help</h2>
     <p>Ask about a new product, an existing system, a quote or a technical problem. We read every message.</p>
     
+    <div class="side-card" style="border-left: 3px solid #128c4a; background: #f0fdf4;">
+      <h3 class="h4" style="color: #128c4a; display: flex; align-items: center; gap: 8px;">
+        <svg class="icon icon--sm" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        Direct WhatsApp Chat
+      </h3>
+      <p style="margin: 0.5rem 0;">Prefer instant messaging? Reach out directly to our engineering team:</p>
+      <a href="https://wa.me/919575370343?text=Hi%20Nimad%20Tech%2C%20I%20would%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener noreferrer" class="btn btn--sm" style="background: #128c4a; color: #fff; font-weight: 600; margin-top: 0.25rem;">Chat on WhatsApp: +91 95753 70343</a>
+    </div>
     <div class="side-card"><h3 class="h4">Have a bigger project?</h3><p>Use the <a href="/start-a-project" data-track="project_cta" data-track-label="contact_side">Start a Project</a> form to describe your requirements step by step, or ask for a short consultation call.</p></div>
     <div class="side-card"><h3 class="h4">Not sure which service you need?</h3><p>Browse our <a href="/services">services</a> or <a href="/solutions">solutions by business problem</a>. Or choose “Not sure yet” in the form and we will advise.</p></div>
   </div>

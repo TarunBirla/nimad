@@ -35,6 +35,13 @@
     <div><h2 class="footer-h">Contact</h2>
       <ul class="footer-contact">
         <li><svg class="icon icon--sm" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14M13 6l6 6-6 6"/></svg><a href="{{ route('contact') }}">Send us a message</a></li>
+        <li><svg class="icon icon--sm" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg><a href="https://wa.me/919575370343?text=Hi%20Nimad%20Tech%2C%20I%20would%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener noreferrer">WhatsApp: +91 95753 70343</a></li>
+      </ul>
+      <h2 class="footer-h" style="margin-top: 24px;">Regions We Serve</h2>
+      <ul>
+        <li><a href="{{ route('locations.dubai') }}">Dubai &amp; UAE</a></li>
+        <li><a href="{{ route('locations.usa') }}">United States</a></li>
+        <li><a href="{{ route('locations.india') }}">India</a></li>
       </ul>
     </div>
   </div>

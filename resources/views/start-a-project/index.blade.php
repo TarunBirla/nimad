@@ -88,7 +88,27 @@
 <div class="grid-2">
 <div class="field">
   <label for="p-budget">Estimated budget <span class="opt">(optional)</span></label>
-  <select id="p-budget" name="budget" aria-describedby="err-p-budget hint-p-budget"><option value="">Select…</option><option value="Not sure yet">Not sure yet</option><option value="Under ₹1 lakh">Under ₹1 lakh</option><option value="₹1 – 3 lakh">₹1 – 3 lakh</option><option value="₹3 – 10 lakh">₹3 – 10 lakh</option><option value="₹10 lakh and above">₹10 lakh and above</option><option value="Prefer to discuss">Prefer to discuss</option></select>
+  <select id="p-budget" name="budget" aria-describedby="err-p-budget hint-p-budget">
+    <option value="">Select…</option>
+    <option value="Not sure yet">Not sure yet</option>
+    @if(request('region') === 'dubai')
+      <option value="Under AED 10,000">Under AED 10,000 (~$2,700 USD)</option>
+      <option value="AED 10,000 – 35,000">AED 10,000 – 35,000</option>
+      <option value="AED 35,000 – 75,000">AED 35,000 – 75,000</option>
+      <option value="AED 75,000 and above">AED 75,000 and above</option>
+    @elseif(request('region') === 'usa')
+      <option value="Under $3,000">Under $3,000</option>
+      <option value="$3,000 – $10,000">$3,000 – $10,000</option>
+      <option value="$10,000 – $25,000">$10,000 – $25,000</option>
+      <option value="$25,000 and above">$25,000 and above</option>
+    @else
+      <option value="Under ₹1 lakh">Under ₹1 lakh / $1,200</option>
+      <option value="₹1 – 3 lakh">₹1 – 3 lakh / $1,200 – $3,500</option>
+      <option value="₹3 – 10 lakh">₹3 – 10 lakh / $3,500 – $12,000</option>
+      <option value="₹10 lakh and above">₹10 lakh+ / $12,000+</option>
+    @endif
+    <option value="Prefer to discuss">Prefer to discuss</option>
+  </select>
   <p class="hint" id="hint-p-budget">Or the equivalent in your currency. Pricing depends on scope.</p>
   <p class="field-error" id="err-p-budget" data-error-for="budget" role="alert"></p>
 </div>

@@ -52,6 +52,9 @@ Route::get('/sitemap.xml', function () {
         ['loc' => route('blog'), 'priority' => '0.9', 'changefreq' => 'daily'],
         ['loc' => route('contact'), 'priority' => '0.8', 'changefreq' => 'monthly'],
         ['loc' => route('start-a-project'), 'priority' => '0.9', 'changefreq' => 'monthly'],
+        ['loc' => route('locations.dubai'), 'priority' => '0.9', 'changefreq' => 'weekly'],
+        ['loc' => route('locations.usa'), 'priority' => '0.9', 'changefreq' => 'weekly'],
+        ['loc' => route('locations.india'), 'priority' => '0.9', 'changefreq' => 'weekly'],
         ['loc' => route('privacy-policy'), 'priority' => '0.3', 'changefreq' => 'yearly'],
         ['loc' => route('terms-of-service'), 'priority' => '0.3', 'changefreq' => 'yearly'],
     ];
@@ -116,6 +119,19 @@ Route::get('/privacy-policy', function () {
 Route::get('/terms-of-service', function () {
     return view('terms-of-service.index');
 })->name('terms-of-service');
+
+// Geo-Targeted High-Intent SEO Landing Pages
+Route::get('/software-development-company-dubai', function () {
+    return view('locations.dubai');
+})->name('locations.dubai');
+
+Route::get('/offshore-software-development-usa', function () {
+    return view('locations.usa');
+})->name('locations.usa');
+
+Route::get('/software-development-company-india', function () {
+    return view('locations.india');
+})->name('locations.india');
 
 // Services Routes
 Route::prefix('services')->group(function () {
